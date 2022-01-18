@@ -5,7 +5,8 @@ import './App.css';
 import SightingsForm from "./components/SightingsForm";
 import SightingsGrid from "./components/SightingsGrid";
 // import SightingService from "./containers/SightingService";
-import { getSightings } from "./containers/SightingService";
+import { getSightings, deleteSighting as apiRemoveSighting } from "./containers/SightingService";
+
 
 function App() {
 
@@ -24,18 +25,19 @@ function App() {
   }
 
   const removeSighting = (id) => {
-    const temp = birdSightings.map(s =>s);
-    const indexToDel = temp.map(s => s._id).indexOf(id);
-    console.log(indexToDel);
-
-    temp.splice(indexToDel, 1);
-    setBirdSightings(temp);
+    apiRemoveSighting(id).then(() => {
+      const temp = birdSightings.map(s =>s);
+      const indexToDel = temp.map(s => s._id).indexOf(id);
+      console.log(indexToDel);
+      temp.splice(indexToDel, 1);
+      setBirdSightings(temp);
+    })
   }
 
   return (
     <>
       <SightingsForm addSighting={addSighting}/>
-      <SightingsGrid sightings={birdSightings} deleteSighting={removeSighting} />
+      <SightingsGrid sightings={birdSightings} removeSighting={removeSighting} />
     </>
   );
 }
