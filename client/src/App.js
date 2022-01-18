@@ -2,10 +2,10 @@ import { useState, useEffect } from "react";
 
 import './App.css';
 
-import SightingsForm from "./SightingsForm";
-import SightingsGrid from "./SightingsGrid";
-import SightingService from "./containers/SightingService";
-import { getSightings } from "./SightingService";
+import SightingsForm from "./components/SightingsForm";
+import SightingsGrid from "./components/SightingsGrid";
+// import SightingService from "./containers/SightingService";
+import { getSightings } from "./containers/SightingService";
 
 function App() {
 
@@ -35,7 +35,7 @@ function App() {
   return (
     <>
       <SightingsForm addSighting={addSighting}/>
-      <SightingsGrid sightings={birdSightings} removeSighting={removeSighting} />
+      <SightingsGrid sightings={birdSightings} deleteSighting={removeSighting} />
     </>
   );
 }

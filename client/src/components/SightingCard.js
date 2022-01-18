@@ -1,4 +1,4 @@
-import { deleteSighting } from "./SightingService"
+import { deleteSighting } from "../containers/SightingService"
 
 const SightingCard = ({sighting, removeSighting}) => {
 

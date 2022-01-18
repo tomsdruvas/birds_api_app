@@ -1,5 +1,5 @@
 import {useState} from "react";
-import { postSighting } from "./SightingService";
+import { postSighting } from "../containers/SightingService";
 
 const SightingsForm = ({addSighting}) => {
     

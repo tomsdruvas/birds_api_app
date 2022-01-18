@@ -1,4 +1,4 @@
-import SightingCard from "./SightingCard";
+import SightingCard from "../components/SightingCard";
 
 const SightingsGrid = ({sightings, removeSighting}) => {
     const sightingsList = sightings.map((sighting) =>{
